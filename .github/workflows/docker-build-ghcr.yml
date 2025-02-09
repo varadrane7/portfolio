@@ -27,7 +27,7 @@ jobs:
       - name: Build and push Docker image
         run: |
           # 3a. Define your image name (org/repo name typically matches the GitHub org/repo)
-          IMAGE_NAME=ghcr.io/varadrane7/personal-portfolio:latest
+          IMAGE_NAME=ghcr.io/varadrane7/portfolio:latest
 
           # 3b. Build the Docker image
           docker build -t $IMAGE_NAME .
