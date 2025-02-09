@@ -69,7 +69,18 @@ const Assets = {
 	Jest: asset('jest.png'),
 	Unocss: asset('unocss.svg'),
 	Ruvy: asset('ruvy.svg'),
-	Postcss: asset('postcss.svg')
+	Postcss: asset('postcss.svg'),
+	Arduino: asset('arduino.svg'),
+	Bash: asset('bash.svg'),
+	Blender: asset('blender.svg'),
+	Dotnet: asset('dotnet.svg'),
+	Figma: asset('figma.svg'),
+	GoogleCloud: asset('gcloud.svg'),
+	Tensorflow: asset('tensorflow.svg'),
+	Matlab: asset('matlab.png'),
+	Kotak: asset('kotak.png'),
+	VES: asset('ves.jpg'),
+	NJIT: asset('njit.png')
 };
 
 export default Assets;
