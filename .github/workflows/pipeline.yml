@@ -8,29 +8,29 @@ on:
 
 jobs:
   # 1) Build and push AMD64 image
-  build-amd64:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v2
+  # build-amd64:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Check out code
+  #       uses: actions/checkout@v2
 
-      - name: Log in to GHCR
-        uses: docker/login-action@v3
-        with:
-          registry: https://ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+  #     - name: Log in to GHCR
+  #       uses: docker/login-action@v3
+  #       with:
+  #         registry: https://ghcr.io
+  #         username: ${{ github.actor }}
+  #         password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build & Push AMD64
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          # NOTE: Only build single-arch so you do NOT end up with a manifest list here
-          platforms: linux/amd64
-          push: true
-          tags: |
-            ghcr.io/varadrane7/portfolio:amd64-latest
-            ghcr.io/varadrane7/portfolio:amd64-${{ github.sha }}
+  #     - name: Build & Push AMD64
+  #       uses: docker/build-push-action@v6
+  #       with:
+  #         context: .
+  #         # NOTE: Only build single-arch so you do NOT end up with a manifest list here
+  #         platforms: linux/amd64
+  #         push: true
+  #         tags: |
+  #           ghcr.io/varadrane7/portfolio:amd64-latest
+  #           ghcr.io/varadrane7/portfolio:amd64-${{ github.sha }}
 
   # 2) Build and push ARM64 image
   build-arm64:
@@ -58,40 +58,40 @@ jobs:
             ghcr.io/varadrane7/portfolio:arm64-${{ github.sha }}
 
   # 3) Create a multi-arch manifest
-  create-manifest:
-    runs-on: ubuntu-latest
-    needs: [ build-amd64, build-arm64 ]
-    steps:
-      - name: Log in to GHCR
-        uses: docker/login-action@v3
-        with:
-          registry: https://ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+  # create-manifest:
+  #   runs-on: ubuntu-latest
+  #   needs: [ build-amd64, build-arm64 ]
+  #   steps:
+  #     - name: Log in to GHCR
+  #       uses: docker/login-action@v3
+  #       with:
+  #         registry: https://ghcr.io
+  #         username: ${{ github.actor }}
+  #         password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create and push multi-arch manifest (latest)
-        run: |
-          # Make "latest" multi-arch by referencing each single-arch tag
-          docker manifest create ghcr.io/varadrane7/portfolio:latest \
-            --amend ghcr.io/varadrane7/portfolio:amd64-latest \
-            --amend ghcr.io/varadrane7/portfolio:arm64-latest
+  #     - name: Create and push multi-arch manifest (latest)
+  #       run: |
+  #         # Make "latest" multi-arch by referencing each single-arch tag
+  #         docker manifest create ghcr.io/varadrane7/portfolio:latest \
+  #           --amend ghcr.io/varadrane7/portfolio:amd64-latest \
+  #           --amend ghcr.io/varadrane7/portfolio:arm64-latest
   
-          docker manifest push ghcr.io/varadrane7/portfolio:latest
+  #         docker manifest push ghcr.io/varadrane7/portfolio:latest
   
-      - name: Create and push multi-arch manifest (commit SHA)
-        run: |
-          # Do the same for the commit SHA tag, if you want a multi-arch version
-          docker manifest create ghcr.io/varadrane7/portfolio:${{ github.sha }} \
-            --amend ghcr.io/varadrane7/portfolio:amd64-${{ github.sha }} \
-            --amend ghcr.io/varadrane7/portfolio:arm64-${{ github.sha }}
-          docker manifest push ghcr.io/varadrane7/portfolio:${{ github.sha }}
+  #     - name: Create and push multi-arch manifest (commit SHA)
+  #       run: |
+  #         # Do the same for the commit SHA tag, if you want a multi-arch version
+  #         docker manifest create ghcr.io/varadrane7/portfolio:${{ github.sha }} \
+  #           --amend ghcr.io/varadrane7/portfolio:amd64-${{ github.sha }} \
+  #           --amend ghcr.io/varadrane7/portfolio:arm64-${{ github.sha }}
+  #         docker manifest push ghcr.io/varadrane7/portfolio:${{ github.sha }}
 
   deploy-to-vps:
     runs-on: self-hosted
     needs:
-      - build-amd64
+      # - build-amd64
       - build-arm64
-      - create-manifest
+      # - create-manifest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
