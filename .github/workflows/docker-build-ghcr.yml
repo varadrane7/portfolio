@@ -2,7 +2,7 @@ name: Build and Push Docker Image to GHCR
 
 on:
   push:
-    branches: ['main']
+    branches: ['master']
     # This means "trigger on any push to the main branch."
     # Merging a PR to main is effectively a push event on main.
 
