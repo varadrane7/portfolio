@@ -56,6 +56,7 @@ export const NAMED_COLORS = {
 	green: '#008000',
 	greenyellow: '#ADFF2F',
 	grey: '#808080',
+	honeydew: '#F0FFF0',
 	hotpink: '#FF69B4',
 	indianred: '#CD5C5C',
 	indigo: '#4B0082',
