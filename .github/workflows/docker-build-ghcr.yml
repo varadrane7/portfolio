@@ -1,0 +1,36 @@
+name: Build and Push Docker Image to GHCR
+
+on:
+  push:
+    branches: ['master']
+    # This means "trigger on any push to the main branch."
+    # Merging a PR to main is effectively a push event on main.
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out your repo
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      # 2. Log in to GHCR using the default GITHUB_TOKEN
+      - name: Log in to GHCR
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # 3. Build and push your image
+      - name: Build and push Docker image
+        run: |
+          # 3a. Define your image name (org/repo name typically matches the GitHub org/repo)
+          IMAGE_NAME=ghcr.io/${{ github.repository }}/personal-portfolio:latest
+
+          # 3b. Build the Docker image
+          docker build -t $IMAGE_NAME .
+
+          # 3c. Push the image to GHCR
+          docker push $IMAGE_NAME

@@ -6,49 +6,53 @@ const title = 'Experience';
 
 const items: Array<Experience> = [
 	{
-		slug: 'open-sourcer',
-		company: 'Self-employed',
-		description: 'Creating awesome tools for developers.',
-		contract: ContractType.SelfEmployed,
+		slug: 'kotak-manager',
+		company: 'Kotak Securities',
+		description:
+			'Enhanced the Authentication and Access Control process for AD Authentication, increasing request speed by 30% and adding support for token-based sessions. Deployed a custom Alert Management System using .NET and SQL, reducing downtime and errors by 15% through instant error alerts. Created high-performance APIs using Typescript, ASP.NET and AWS Lambda functions, enabling business-critical operations with improved scalability and reduced latency. Following Microsoft’s suggestions, merged common functionality from 12 different applications into a single code library, reducing network complexity by 20%',
+		contract: ContractType.FullTime,
 		type: 'Software Development',
-		location: 'Home',
-		period: { from: new Date() },
-		skills: getSkills('ts', 'js'),
-		name: 'Open Source Developer',
+		location: 'Mumbai',
+		period: { from: new Date('2023-06-20'), to: new Date('2024-08-31') },
+		skills: getSkills('js', 'angular', 'dotnet', 'docker', 'python', 'bash'),
+		name: 'Deputy Manager - IT Software',
 		color: 'red',
-		links: [],
-		logo: Assets.Unknown,
-		shortDescription: 'Creating awesome tools for developers.'
+		links: [{ to: 'https://www.kotaksecurities.com/', label: 'Kotak Securities' }],
+		logo: Assets.Kotak,
+		shortDescription: 'Worked on various closed-source technologies and process improvement.'
 	},
 	{
-		slug: 'software-freelance',
-		company: 'Self-employed',
-		description: 'Creating awesome applications for customers.',
-		contract: ContractType.Freelance,
+		slug: 'kotak-mt',
+		company: 'Kotak Securities',
+		description:
+			'Developed Full-stack applications with Angular and .NET, involving queue-based processing of requests, to facilitate data request queries from multiple SQL databases efficiently. Migrated WPF and Winforms applications written in .NET Framework to .NET 7.0 to stay compliant with company’s security standards',
+		contract: ContractType.FullTime,
 		type: 'Software Development',
-		location: 'Home',
-		period: { from: new Date() },
-		skills: getSkills('svelte', 'ts', 'sass', 'css', 'html', 'js'),
-		name: 'Freelancer',
-		color: 'blue',
-		links: [],
-		logo: Assets.Unknown,
-		shortDescription: 'Creating awesome applications for customers.'
+		location: 'Mumbai',
+		period: { from: new Date('2022-06-20'), to: new Date('2023-06-19') },
+		skills: getSkills('js', 'csharp', 'angular', 'dotnet', 'css'),
+		name: 'Management Trainee',
+		color: 'red',
+		links: [{ to: 'https://www.kotaksecurities.com/', label: 'Kotak Securities' }],
+		logo: Assets.Kotak,
+		shortDescription:
+			'Learnt the corporate ins and outs and professional development methodologies by working and managing projects.'
 	},
 	{
-		slug: 'software-freelance-junior',
-		company: 'Self-employed',
-		description: 'Creating awesome applications for customers.',
-		contract: ContractType.Freelance,
+		slug: 'software-intern-senior',
+		company: 'VESIT',
+		description:
+			'Designed and coded a website along with a Discord Chat Bot, to provide students their extracurricular certificates. Used college emails to authenticate and verify users, and developed a website to bulk upload digitally signed and verified certificates',
+		contract: ContractType.Internship,
 		type: 'Software Development',
 		location: 'Home',
-		period: { from: new Date(2022, 0, 1), to: new Date() },
+		period: { from: new Date('2021-1-2'), to: new Date('2021-8-1') },
 		skills: getSkills('css', 'html', 'js'),
-		name: 'Junior Freelancer',
-		color: 'green',
+		name: 'Senior Developer',
+		color: 'yellow',
 		links: [],
 		logo: Assets.Unknown,
-		shortDescription: 'Creating awesome applications for customers.'
+		shortDescription: 'Creating an efficient certificate distribution method.'
 	}
 ];
 

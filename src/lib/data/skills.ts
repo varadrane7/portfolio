@@ -80,66 +80,148 @@ const title = 'Skills';
 
 const items = [
 	defineSkill({
-		slug: 'js',
-		color: 'yellow',
+		slug: 'angular',
+		color: 'red',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
-		logo: Assets.JavaScript,
-		name: 'Javascript',
+			'Angular is a robust, TypeScript-based front-end framework developed by Google that simplifies building dynamic, scalable single-page applications.',
+		logo: Assets.Angular,
+		name: 'Angular',
 		category: 'pro-lang'
 	}),
 	defineSkill({
-		slug: 'ts',
+		slug: 'arduino',
 		color: 'blue',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
-		logo: Assets.TypeScript,
-		name: 'Typescript',
+			'Arduino is an open-source electronics platform that combines user-friendly hardware and software to empower rapid prototyping of interactive projects.',
+		logo: Assets.Arduino,
+		name: 'Arduino',
+		category: 'devtools'
+	}),
+	defineSkill({
+		slug: 'bash',
+		color: 'green',
+		description:
+			'Bash, short for "Bourne Again Shell," is a versatile command-line interpreter and scripting language widely used in Unix-like operating systems for automating tasks and system administration.',
+		logo: Assets.Bash,
+		name: 'Bash',
+		category: 'pro-lang'
+	}),
+	defineSkill({
+		slug: 'blender',
+		color: 'orange',
+		description:
+			'Blender is an open-source 3D creation suite that offers a comprehensive workflow for modeling, animation, simulation, rendering, and more, empowering digital artists to bring their visions to life.',
+		logo: Assets.Blender,
+		name: 'Blender',
+		category: 'design'
+	}),
+	defineSkill({
+		slug: 'clanguage',
+		color: 'blue',
+		description:
+			'C is a powerful, efficient programming language that provides low-level memory access, making it a cornerstone for systems programming and performance-critical applications.',
+		logo: Assets.C,
+		name: 'C',
+		category: 'pro-lang'
+	}),
+	defineSkill({
+		slug: 'csharp',
+		color: 'purple',
+		description:
+			'C# is a modern, object-oriented programming language developed by Microsoft that streamlines building robust applications on the .NET platform.',
+		logo: Assets.Csharp,
+		name: 'C#',
 		category: 'pro-lang'
 	}),
 	defineSkill({
 		slug: 'css',
 		color: 'blue',
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
+			'CSS, short for Cascading Style Sheets, is a stylesheet language that defines the look and formatting of web pages, enabling developers to separate content from design for visually appealing user experiences.',
 		logo: Assets.CSS,
 		name: 'CSS',
-		category: 'markup-style'
+		category: 'pro-lang'
 	}),
 	defineSkill({
-		slug: 'html',
+		slug: 'docker',
+		color: 'blue',
+		description:
+			'Docker is an open platform that enables developers to package applications into lightweight, portable containers, ensuring consistent performance across various environments.',
+		logo: Assets.Docker,
+		name: 'Docker',
+		category: 'devops'
+	}),
+	defineSkill({
+		slug: 'dotnet',
+		color: 'purple',
+		description:
+			'Dotnet (.NET) is an open-source, cross-platform development framework by Microsoft that simplifies building scalable, high-performance applications for web, mobile, desktop, and cloud platforms.',
+		logo: Assets.Dotnet,
+		name: '.NET',
+		category: 'pro-lang'
+	}),
+	defineSkill({
+		slug: 'figma',
+		name: 'Figma',
+		color: 'red',
+		category: 'design',
+		logo: Assets.Figma,
+		description:
+			'Figma is a cloud-based design and prototyping tool that empowers real-time collaboration, streamlining the creation of intuitive user interfaces.'
+	}),
+	defineSkill({
+		slug: 'firebase',
+		name: 'Firebase',
 		color: 'orange',
+		category: 'db',
+		logo: Assets.Firebase,
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
-		logo: Assets.HTML,
-		name: 'HTML',
-		category: 'markup-style'
+			'Firebase is a comprehensive development platform by Google that provides real-time databases, authentication, hosting, and analytics services to streamline building and scaling web and mobile applications.'
 	}),
 	defineSkill({
-		slug: 'sass',
-		color: 'pink',
+		slug: 'google-cloud',
+		name: 'Google Cloud',
+		color: 'yellow',
+		category: 'devops',
+		logo: Assets.GoogleCloud,
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
-		logo: Assets.Sass,
-		name: 'Sass',
-		category: 'markup-style'
+			'Google Cloud is a comprehensive suite of cloud services by Google that empowers businesses to build, scale, and secure applications with advanced tools and global infrastructure.'
 	}),
 	defineSkill({
-		slug: 'reactjs',
-		color: 'cyan',
+		slug: 'js',
+		name: 'Javascript',
+		color: 'yellow',
+		category: 'pro-lang',
+		logo: Assets.JavaScript,
 		description:
-			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent orci enim, congue sit amet justo eget, consequat sollicitudin libero. Etiam iaculis lectus tempor, hendrerit enim in, luctus arcu. Maecenas id enim et nibh ullamcorper auctor ac eu est. Donec imperdiet, diam quis malesuada faucibus, nibh ex gravida sapien, posuere pharetra nunc libero tristique turpis. Sed egestas laoreet semper. In hac habitasse platea dictumst. Praesent vitae est nec felis maximus facilisis. Duis luctus dui id urna tristique varius. Ut vulputate leo arcu, non bibendum arcu pulvinar eget. Fusce semper elit ut congue lacinia. Suspendisse magna diam, tempus vitae interdum eget, dictum vitae nisl. Praesent quis fringilla tortor. Donec vitae sagittis dui.',
-		logo: Assets.ReactJs,
-		name: 'React Js',
-		category: 'library'
+			'JavaScript is a dynamic, high-level programming language that powers interactive web experiences and modern applications across both client and server sides.'
 	}),
 	defineSkill({
-		slug: 'svelte',
+		slug: 'python',
+		name: 'Python',
+		color: 'blue',
+		category: 'pro-lang',
+		logo: Assets.Python,
+		description:
+			'Python is a versatile, high-level programming language known for its readability and extensive libraries, making it a popular choice for everything from web development to scientific computing and machine learning.'
+	}),
+	defineSkill({
+		slug: 'tensorflow',
+		name: 'Tensorflow',
 		color: 'orange',
-		description: svelteMd,
-		logo: Assets.Svelte,
-		name: 'Svelte',
-		category: 'library'
+		category: 'library',
+		logo: Assets.Tensorflow,
+		description:
+			'Figma is a cloud-based design and prototyping tool that empowers real-time collaboration, streamlining the creation of intuitive user interfaces.'
+	}),
+	defineSkill({
+		slug: 'matlab',
+		name: 'Matlab',
+		color: 'red',
+		category: 'pro-lang',
+		logo: Assets.Matlab,
+		description:
+			'MATLAB is a high-level programming environment renowned for its powerful numerical computing, data visualization, and algorithm development capabilities in engineering and scientific research.'
 	})
 ] as const;
 

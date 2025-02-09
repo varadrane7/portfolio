@@ -2,7 +2,7 @@ import BaseData from './base';
 import { getSkills } from './skills';
 import type { Skill } from './types';
 
-const title = 'Home';
+const title = 'Varad Rane';
 
 const hero: {
 	title: string;
@@ -11,12 +11,16 @@ const hero: {
 } = {
 	title: `${BaseData.fullName},`,
 	description:
-		'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+		'Aspiring software engineer with a passion for building scalable, efficient, and user-centric solutions, driven by a strong technical foundation and a commitment to continuous learning.',
 	links: [
-		{ label: 'GitHub', href: 'https://github.com', icon: 'i-carbon-logo-github' },
-		{ label: 'LinkedIn', href: 'https://linkedin.com', icon: 'i-carbon-logo-linkedin' },
-		{ label: 'Twitter', href: 'https://twitter.com', icon: 'i-carbon-logo-twitter' },
-		{ label: 'Email', href: 'mailto:riadh.adrani@pm.me', icon: 'i-carbon-at' }
+		{ label: 'GitHub', href: 'https://github.com/varadrane7', icon: 'i-carbon-logo-github' },
+		{
+			label: 'LinkedIn',
+			href: 'https://linkedin.com/in/varadrane7',
+			icon: 'i-carbon-logo-linkedin'
+		},
+		{ label: 'Twitter', href: 'https://twitter.com/varadrane07', icon: 'i-carbon-logo-twitter' },
+		{ label: 'Email', href: 'mailto:varadrane7@gmail.com', icon: 'i-carbon-at' }
 	]
 };
 
