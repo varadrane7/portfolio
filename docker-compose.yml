@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+  varad-portfolio:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: varad-portfolio
+    # no traefik labels here by default
+    restart: unless-stopped
+# no external networks, no traefik labels
