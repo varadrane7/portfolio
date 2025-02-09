@@ -7,31 +7,13 @@ on:
     # Merging a PR to main is effectively a push event on main.
 
 jobs:
-  build-and-push-image:
-    runs-on: self-hosted
-
+  # 1) Build and push AMD64 image
+  build-amd64:
+    runs-on: ubuntu-latest
     steps:
-      # 1. Check out your repo
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - name: Check out code
+        uses: actions/checkout@v2
 
-      # 2) Set up QEMU for multi-arch support
-      # This step is required for building images for non-native architectures (e.g., ARM).
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
-        with:
-          platforms: arm, arm64
-
-      # 3) Set up Docker Buildx (which uses the docker-container driver)
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-        with:
-          install: true
-          driver-opts: |
-            image=moby/buildkit:latest
-            network=host
-
-      # 4. Log in to GHCR using the default GITHUB_TOKEN
       - name: Log in to GHCR
         uses: docker/login-action@v3
         with:
@@ -39,20 +21,75 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      # 5. Build and push your image
-      - name: Build and push Docker image
+      - name: Build & push AMD64 image
         run: |
+          # Optionally set up buildx if you wish, or just use docker build for a single architecture
+          docker buildx create --name builder --driver docker-container --use
+          docker buildx inspect --bootstrap
+          
+          # Build and push just the AMD64 image
           docker buildx build \
-            --platform linux/amd64,linux/arm/v7 \
-            --tag ghcr.io/varadrane7/portfolio:latest \
-            --tag ghcr.io/varadrane7/portfolio:${{ github.sha }} \
+            --platform linux/amd64 \
+            -t ghcr.io/varadrane7/portfolio:amd64-latest \
             --push \
             .
+
+  # 2) Build and push ARM64 image
+  build-arm64:
+    # Make sure your self-hosted runner has the label(s) "self-hosted" and "arm64"
+    runs-on: [ self-hosted, arm64 ]
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: https://ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & push ARM64 image
+        run: |
+          docker buildx create --name builder --driver docker-container --use
+          docker buildx inspect --bootstrap
+
+          # Build and push just the ARM64 image
+          docker buildx build \
+            --platform linux/arm64 \
+            -t ghcr.io/varadrane7/portfolio:arm64-latest \
+            --push \
+            .
+
+  # 3) Create a multi-arch manifest
+  create-manifest:
+    runs-on: ubuntu-latest
+    needs: [ build-amd64, build-arm64 ]
+    steps:
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: https://ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create and push multi-arch manifest
+        run: |
+          # Pull down the already-pushed images or at least reference them
+          # Then combine them under a single tag
+          docker manifest create ghcr.io/varadrane7/portfolio:latest \
+            --amend ghcr.io/varadrane7/portfolio:amd64-latest \
+            --amend ghcr.io/varadrane7/portfolio:arm64-latest
+
+          # Push the combined manifest
+          docker manifest push ghcr.io/varadrane7/portfolio:latest
 
   deploy-to-vps:
     runs-on: self-hosted
     needs:
-      - build-and-push-image
+      - build-amd64
+      - build-arm64
+      - create-manifest
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
