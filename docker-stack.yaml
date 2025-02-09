@@ -7,7 +7,7 @@ networks:
 
 services:
   varad-portfolio:
-    image: ghcr.io/varadrane7/portfolio:${GIT_COMMIT_HASH:-latest}
+    image: ghcr.io/varadrane7/portfolio:latest
     container_name: varad-portfolio
     security_opt:
       - no-new-privileges:true
