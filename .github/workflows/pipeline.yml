@@ -54,8 +54,8 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: |
-            ghcr.io/varadrane7/portfolio:arm64-latest
-            ghcr.io/varadrane7/portfolio:arm64-${{ github.sha }}
+            ghcr.io/varadrane7/portfolio:latest
+            ghcr.io/varadrane7/portfolio:${{ github.sha }}
 
   # 3) Create a multi-arch manifest
   # create-manifest:
