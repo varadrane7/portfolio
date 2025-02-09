@@ -1,4 +1,4 @@
-name: Build and Deploy Docker Stak
+name: Build and Deploy to Stack
 
 on:
   push:
@@ -21,18 +21,16 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build & push AMD64 image
-        run: |
-          # Optionally set up buildx if you wish, or just use docker build for a single architecture
-          docker buildx create --name builder --driver docker-container --use
-          docker buildx inspect --bootstrap
-          
-          # Build and push just the AMD64 image
-          docker buildx build \
-            --platform linux/amd64 \
-            -t ghcr.io/varadrane7/portfolio:amd64-latest \
-            --push \
-            .
+      - name: Build & Push AMD64
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          # NOTE: Only build single-arch so you do NOT end up with a manifest list here
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ghcr.io/varadrane7/portfolio:amd64-latest
+            ghcr.io/varadrane7/portfolio:amd64-${{ github.sha }}
 
   # 2) Build and push ARM64 image
   build-arm64:
@@ -49,17 +47,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build & push ARM64 image
-        run: |
-          docker buildx create --name builder --driver docker-container --use
-          docker buildx inspect --bootstrap
-
-          # Build and push just the ARM64 image
-          docker buildx build \
-            --platform linux/arm64 \
-            -t ghcr.io/varadrane7/portfolio:arm64-latest \
-            --push \
-            .
+      - name: Build & Push ARM64
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          platforms: linux/arm64
+          push: true
+          tags: |
+            ghcr.io/varadrane7/portfolio:arm64-latest
+            ghcr.io/varadrane7/portfolio:arm64-${{ github.sha }}
 
   # 3) Create a multi-arch manifest
   create-manifest:
@@ -73,16 +69,22 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create and push multi-arch manifest
+      - name: Create and push multi-arch manifest (latest)
         run: |
-          # Pull down the already-pushed images or at least reference them
-          # Then combine them under a single tag
+          # Make "latest" multi-arch by referencing each single-arch tag
           docker manifest create ghcr.io/varadrane7/portfolio:latest \
             --amend ghcr.io/varadrane7/portfolio:amd64-latest \
             --amend ghcr.io/varadrane7/portfolio:arm64-latest
-
-          # Push the combined manifest
+  
           docker manifest push ghcr.io/varadrane7/portfolio:latest
+  
+      - name: Create and push multi-arch manifest (commit SHA)
+        run: |
+          # Do the same for the commit SHA tag, if you want a multi-arch version
+          docker manifest create ghcr.io/varadrane7/portfolio:${{ github.sha }} \
+            --amend ghcr.io/varadrane7/portfolio:amd64-${{ github.sha }} \
+            --amend ghcr.io/varadrane7/portfolio:arm64-${{ github.sha }}
+          docker manifest push ghcr.io/varadrane7/portfolio:${{ github.sha }}
 
   deploy-to-vps:
     runs-on: self-hosted
