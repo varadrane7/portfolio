@@ -1,0 +1,58 @@
+name: Build and Deploy Docker Stak
+
+on:
+  push:
+    branches: ['master']
+    # This means "trigger on any push to the main branch."
+    # Merging a PR to main is effectively a push event on main.
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out your repo
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      # 2. Log in to GHCR using the default GITHUB_TOKEN
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: https://ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # 3. Build and push your image
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm/v7
+          push: true
+          tags: |
+            ghcr.io/varadrane7/portfolio:latest
+            ghcr.io/varadrane7/portfolio:${{ github.sha }}
+
+  deploy-to-vps:
+    runs-on: unbuntu-latest
+    needs:
+      - build-and-push-image
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: create env file
+      run: |
+        echo "GIT_COMMIT_HASH=${{ github.sha }}" >> ./envfile
+    
+    - name: Docker Stack Deploy
+      uses: cssnr/stack-deploy-action@v1
+      with:
+        name: varad-portfolio
+        file: docker-stack.yaml
+        host: 150.230.235.239
+        user: deploy
+        ssh_key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+        env_file: ./envfile
+

@@ -1,0 +1,23 @@
+version: '3.9'
+
+networks:
+  t3_proxy:
+    external: 
+      name: t3_proxy
+
+services:
+  varad-portfolio:
+    image: ghcr.io/varadrane7/portfolio:${GIT_COMMIT_HASH:-latest}
+    container_name: varad-portfolio
+    security_opt:
+      - no-new-privileges:true
+    restart: unless-stopped
+    networks:
+      - t3_proxy
+    labels:
+      - "traefik.enable=true"
+      # HTTP Routers
+      - "traefik.http.routers.varad-portfolio-rtr.entrypoints=websecure"
+      - "traefik.http.routers.varad-portfolio-rtr.rule=Host(`kurlaserver.nl`) || Host(`www.kurlaserver.nl`) || Host(`varadrane.com`) || Host(`www.varadrane.com`)"
+      # Middlewares
+      - "traefik.http.routers.varad-portfolio-rtr.middlewares=chain-no-auth@file"
