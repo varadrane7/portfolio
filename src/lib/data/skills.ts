@@ -222,6 +222,15 @@ const items = [
 		logo: Assets.Matlab,
 		description:
 			'MATLAB is a high-level programming environment renowned for its powerful numerical computing, data visualization, and algorithm development capabilities in engineering and scientific research.'
+	}),
+	defineSkill({
+		slug: 'sql',
+		name: 'SQL',
+		color: 'yellow',
+		category: 'pro-lang',
+		logo: Assets.PostgreSQL,
+		description:
+			'SQL is a query language for relational databases. It is used to perform operations in the database via a Database Management System'
 	})
 ] as const;
 

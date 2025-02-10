@@ -16,7 +16,7 @@ const items: Array<Project> = [
 			from: new Date('2023-10-01'),
 			to: new Date('2025-01-03')
 		},
-		skills: getSkills('js', 'css'),
+		skills: getSkills('js', 'sql', 'css'),
 		type: 'Chrome Extension'
 	},
 	{
@@ -35,7 +35,7 @@ const items: Array<Project> = [
 			from: new Date('2021-06-15'),
 			to: new Date('2022-08-14')
 		},
-		skills: getSkills('python', 'matlab', 'tensorflow'),
+		skills: getSkills('python', 'firebase', 'matlab', 'tensorflow'),
 		type: 'Research'
 	},
 	{
