@@ -7,38 +7,17 @@ on:
     # Merging a PR to main is effectively a push event on main.
 
 jobs:
-  # 1) Build and push AMD64 image
-  # build-amd64:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Check out code
-  #       uses: actions/checkout@v2
-
-  #     - name: Log in to GHCR
-  #       uses: docker/login-action@v3
-  #       with:
-  #         registry: https://ghcr.io
-  #         username: ${{ github.actor }}
-  #         password: ${{ secrets.GITHUB_TOKEN }}
-
-  #     - name: Build & Push AMD64
-  #       uses: docker/build-push-action@v6
-  #       with:
-  #         context: .
-  #         # NOTE: Only build single-arch so you do NOT end up with a manifest list here
-  #         platforms: linux/amd64
-  #         push: true
-  #         tags: |
-  #           ghcr.io/varadrane7/portfolio:amd64-latest
-  #           ghcr.io/varadrane7/portfolio:amd64-${{ github.sha }}
-
-  # 2) Build and push ARM64 image
-  build-arm64:
-    # Make sure your self-hosted runner has the label(s) "self-hosted" and "arm64"
-    runs-on: [ self-hosted, arm64 ]
+  build-image:
+    runs-on: self-hosted
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
 
       - name: Log in to GHCR
         uses: docker/login-action@v3
@@ -52,61 +31,30 @@ jobs:
         with:
           context: .
           push: true
-          platform: linux/arm64
+          platforms: linux/arm64,linux/amd64
           tags: |
             ghcr.io/varadrane7/portfolio:latest
             ghcr.io/varadrane7/portfolio:${{ github.sha }}
 
-  # 3) Create a multi-arch manifest
-  # create-manifest:
-  #   runs-on: ubuntu-latest
-  #   needs: [ build-amd64, build-arm64 ]
-  #   steps:
-  #     - name: Log in to GHCR
-  #       uses: docker/login-action@v3
-  #       with:
-  #         registry: https://ghcr.io
-  #         username: ${{ github.actor }}
-  #         password: ${{ secrets.GITHUB_TOKEN }}
-
-  #     - name: Create and push multi-arch manifest (latest)
-  #       run: |
-  #         # Make "latest" multi-arch by referencing each single-arch tag
-  #         docker manifest create ghcr.io/varadrane7/portfolio:latest \
-  #           --amend ghcr.io/varadrane7/portfolio:amd64-latest \
-  #           --amend ghcr.io/varadrane7/portfolio:arm64-latest
-  
-  #         docker manifest push ghcr.io/varadrane7/portfolio:latest
-  
-  #     - name: Create and push multi-arch manifest (commit SHA)
-  #       run: |
-  #         # Do the same for the commit SHA tag, if you want a multi-arch version
-  #         docker manifest create ghcr.io/varadrane7/portfolio:${{ github.sha }} \
-  #           --amend ghcr.io/varadrane7/portfolio:amd64-${{ github.sha }} \
-  #           --amend ghcr.io/varadrane7/portfolio:arm64-${{ github.sha }}
-  #         docker manifest push ghcr.io/varadrane7/portfolio:${{ github.sha }}
-
-  # deploy-to-vps:
-  #   runs-on: ubuntu-latest
-  #   needs:
-  #     # - build-amd64
-  #     - build-arm64
-  #     # - create-manifest
-  #   steps:
-  #   - name: Checkout code
-  #     uses: actions/checkout@v2
+  deploy-to-vps:
+    runs-on: ubuntu-latest
+    needs:
+      - build-image
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
     
-  #   - name: create env file
-  #     run: |
-  #       echo "GIT_COMMIT_HASH=${{ github.sha }}" >> ./envfile
+    - name: create env file
+      run: |
+        echo "GIT_COMMIT_HASH=${{ github.sha }}" >> ./envfile
     
-  #   - name: Docker Stack Deploy
-  #     uses: cssnr/stack-deploy-action@v1
-  #     with:
-  #       name: varad-portfolio
-  #       file: docker-stack.yaml
-  #       host: 150.230.235.239
-  #       user: deploy
-  #       ssh_key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
-  #       env_file: ./envfile
+    - name: Docker Stack Deploy
+      uses: cssnr/stack-deploy-action@v1
+      with:
+        name: varad-portfolio
+        file: docker-stack.yaml
+        host: 150.230.235.239
+        user: deploy
+        ssh_key: ${{ secrets.DEPLOY_SSH_PRIVATE_KEY }}
+        env_file: ./envfile
 
