@@ -2,16 +2,15 @@ version: '3.9'
 
 networks:
   t3_proxy:
-    external: 
-      name: t3_proxy
+    name: t3_proxy
+    external: true
 
 services:
-  varad-portfolio:
-    image: ghcr.io/varadrane7/portfolio:latest
-    container_name: varad-portfolio
-    security_opt:
-      - no-new-privileges:true
-    restart: unless-stopped
+  personal-website:
+    image: ghcr.io/varadrane7/portfolio:${GIT_COMMIT_HASH:-latest}
+    deploy:
+      update_config:
+        order: start-first
     networks:
       - t3_proxy
     labels:
