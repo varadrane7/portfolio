@@ -52,6 +52,7 @@ jobs:
         with:
           context: .
           push: true
+          platform: linux/arm64
           tags: |
             ghcr.io/varadrane7/portfolio:latest
             ghcr.io/varadrane7/portfolio:${{ github.sha }}
