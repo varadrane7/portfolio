@@ -158,7 +158,7 @@ const items = [
 			'Dotnet (.NET) is an open-source, cross-platform development framework by Microsoft that simplifies building scalable, high-performance applications for web, mobile, desktop, and cloud platforms.',
 		logo: Assets.Dotnet,
 		name: '.NET',
-		category: 'pro-lang'
+		category: 'library'
 	}),
 	defineSkill({
 		slug: 'figma',
