@@ -20,7 +20,7 @@ const hero: {
 			icon: 'i-carbon-logo-linkedin'
 		},
 		{ label: 'Twitter', href: 'https://twitter.com/varadrane07', icon: 'i-carbon-logo-twitter' },
-		{ label: 'Email', href: 'mailto:varadrane7@gmail.com', icon: 'i-carbon-at' }
+		{ label: 'Email', href: 'mailto:hello@varadrane.com', icon: 'i-carbon-at' }
 	]
 };
 
