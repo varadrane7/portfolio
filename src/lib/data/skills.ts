@@ -231,6 +231,15 @@ const items = [
 		logo: Assets.PostgreSQL,
 		description:
 			'SQL is a query language for relational databases. It is used to perform operations in the database via a Database Management System'
+	}),
+	defineSkill({
+		slug: 'cpp',
+		name: 'C++',
+		color: 'blue',
+		category: 'pro-lang',
+		logo: Assets.Cpp,
+		description:
+			'C++ is a high-level, general-purpose programming language known for its performance and efficiency. It is widely used in software and game development, robotics, scientific computing, and VR/AR due to its ability to handle complex applications while offering low-level memory manipulation and object-oriented features.'
 	})
 ] as const;
 
