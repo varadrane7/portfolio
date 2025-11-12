@@ -68,7 +68,7 @@ const items: Array<Experience> = [
 		name: 'Senior Developer',
 		color: 'yellow',
 		links: [],
-		logo: Assets.Unknown,
+		logo: Assets.VES,
 		shortDescription: 'Creating an efficient certificate distribution method.'
 	}
 ];
