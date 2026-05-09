@@ -64,7 +64,7 @@ const items: Array<Project> = [
 			{ to: 'https://github.com/varadrane7/privguard-sentinel', label: 'GitHub' },
 			{ to: 'https://blog.varadrane.com/posts/privguard-sentinel/', label: 'Blog Post' }
 		],
-		logo: Assets.Unknown,
+		logo: Assets.TypeScript,
 		name: 'PrivGuard Sentinel',
 		period: {
 			from: new Date('2026-05-01')
