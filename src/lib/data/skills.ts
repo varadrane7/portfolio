@@ -240,6 +240,22 @@ const items = [
 		logo: Assets.Cpp,
 		description:
 			'C++ is a high-level, general-purpose programming language known for its performance and efficiency. It is widely used in software and game development, robotics, scientific computing, and VR/AR due to its ability to handle complex applications while offering low-level memory manipulation and object-oriented features.'
+	}),
+	defineSkill({
+		slug: 'go',
+		name: 'Go',
+		color: '#00add8',
+		category: 'pro-lang',
+		logo: Assets.Go,
+		description: 'Go is an open-source programming language supported by Google that makes it easy to build simple, reliable, and efficient software.'
+	}),
+	defineSkill({
+		slug: 'ts',
+		name: 'TypeScript',
+		color: '#3178c6',
+		category: 'pro-lang',
+		logo: Assets.TypeScript,
+		description: 'TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.'
 	})
 ] as const;
 

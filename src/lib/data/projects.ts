@@ -53,6 +53,42 @@ const items: Array<Project> = [
 		skills: getSkills('docker', 'dotnet', 'angular', 'arduino'),
 		links: [{ to: 'https://www.kurlaserver.nl', label: 'Website' }],
 		type: 'Project'
+	},
+	{
+		slug: 'privguard-sentinel',
+		color: '#8a2be2',
+		description:
+			'PrivGuard Sentinel is an intelligent, portable GitHub Action that checks every Pull Request for code quality, security, privacy, compliance, prompt injection, and hidden backdoors. It bridges the gap between static analysis and agentic reasoning by providing inline code review comments on the exact lines that introduce risk, powered by a rule-based engine and an LLM.',
+		shortDescription: 'An intelligent, portable GitHub Action that checks every Pull Request for code quality, security, and privacy risks.',
+		links: [
+			{ to: 'https://github.com/varadrane7/privguard-sentinel', label: 'GitHub' },
+			{ to: 'https://blog.varadrane.com/posts/privguard-sentinel/', label: 'Blog Post' }
+		],
+		logo: Assets.Unknown,
+		name: 'PrivGuard Sentinel',
+		period: {
+			from: new Date('2026-05-01')
+		},
+		skills: getSkills('ts', 'bash'),
+		type: 'GitHub Action'
+	},
+	{
+		slug: 'lazycurl',
+		color: '#00add8',
+		description:
+			'LazyCurl is a powerful Terminal User Interface (TUI) for HTTP API interaction written in Go. It brings robust session management, visual request editing, and a built-in concurrent load testing engine directly to your terminal. It uses native curl under the hood, guaranteeing maximum compatibility and reliability.',
+		shortDescription: 'The Terminal Interface for Curl, Stress Testing, and API Exploration.',
+		links: [
+			{ to: 'https://github.com/varadrane7/lazycurl', label: 'GitHub' },
+			{ to: 'https://blog.varadrane.com/posts/lazycurl/', label: 'Blog Post' }
+		],
+		logo: Assets.Go,
+		name: 'LazyCurl',
+		period: {
+			from: new Date('2026-05-01')
+		},
+		skills: getSkills('go', 'bash'),
+		type: 'Tooling'
 	}
 ];
 
