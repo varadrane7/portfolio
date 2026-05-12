@@ -13,7 +13,7 @@ const items: Array<Experience> = [
 		contract: ContractType.PartTime,
 		type: 'Teaching Assistant (TA)',
 		location: 'Newark, NJ',
-		period: { from: new Date('2023-06-20') },
+		period: { from: new Date('2025-08-10') },
 		skills: getSkills('cpp', 'clanguage', 'java', 'bash', 'python'),
 		name: 'Teaching Assistant - Undergraduate and Graduate courses',
 		color: 'red',
