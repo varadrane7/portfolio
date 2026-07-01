@@ -80,7 +80,12 @@ const Assets = {
 	Matlab: asset('matlab.png'),
 	Kotak: asset('kotak.png'),
 	VES: asset('ves.jpg'),
-	NJIT: asset('njit.png')
+	NJIT: asset('njit.png'),
+	FieldWorker: asset('fieldworker.svg'),
+	LLM: asset('llm.svg'),
+	RAG: asset('rag.svg'),
+	REST: asset('rest.svg'),
+	OOP: asset('oop.svg')
 };
 
 export default Assets;

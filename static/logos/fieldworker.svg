@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <rect width="100" height="100" rx="20" fill="#1a73e8"/>
+  <g fill="none" stroke="#ffffff" stroke-dasharray="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Center User -->
+    <circle cx="50" cy="30" r="10" fill="#ffffff"/>
+    <path d="M30 65c0-10 8-15 20-15s20 5 20 15v10H30V65z" fill="#ffffff"/>
+    <!-- Left User -->
+    <circle cx="22" cy="48" r="7" fill="#ffffff" fill-opacity="0.8"/>
+    <path d="M8 73c0-7 6-10 14-10s14 3 14 10v7H8v-7z" fill="#ffffff" fill-opacity="0.8"/>
+    <!-- Right User -->
+    <circle cx="78" cy="48" r="7" fill="#ffffff" fill-opacity="0.8"/>
+    <path d="M64 73c0-7 6-10 14-10s14 3 14 10v7H64v-7z" fill="#ffffff" fill-opacity="0.8"/>
+    <!-- Connections -->
+    <path d="M50 30 L22 48" stroke="#ffffff" stroke-width="3" stroke-dasharray="4 4"/>
+    <path d="M50 30 L78 48" stroke="#ffffff" stroke-width="3" stroke-dasharray="4 4"/>
+    <path d="M22 48 L78 48" stroke="#ffffff" stroke-width="3" stroke-dasharray="4 4"/>
+  </g>
+</svg>

@@ -256,6 +256,34 @@ const items = [
 		category: 'pro-lang',
 		logo: Assets.TypeScript,
 		description: 'TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.'
+	}),
+	defineSkill({
+		slug: 'llm',
+		name: 'Large Language Models (LLM)',
+		color: 'blue',
+		logo: Assets.LLM,
+		description: 'Large Language Models (LLMs) are advanced AI models trained on vast amounts of text data to understand, generate, and manipulate natural language.'
+	}),
+	defineSkill({
+		slug: 'rag',
+		name: 'Retrieval-Augmented Generation (RAG)',
+		color: 'green',
+		logo: Assets.RAG,
+		description: 'Retrieval-Augmented Generation (RAG) optimizes LLM output by querying an external knowledge base before generating a response.'
+	}),
+	defineSkill({
+		slug: 'rest',
+		name: 'REST APIs',
+		color: 'orange',
+		logo: Assets.REST,
+		description: 'Representational State Transfer (REST) is an architectural style for designing networked applications, relying on stateless, client-server protocols.'
+	}),
+	defineSkill({
+		slug: 'oop',
+		name: 'Object-Oriented Programming (OOP)',
+		color: 'purple',
+		logo: Assets.OOP,
+		description: 'Object-Oriented Programming (OOP) is a programming paradigm based on the concept of "objects", containing data and code.'
 	})
 ] as const;
 
