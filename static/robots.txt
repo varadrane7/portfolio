@@ -1,0 +1,47 @@
+User-agent: *
+Allow: /
+Disallow: /search
+
+# AI crawlers - allow indexing, disallow training
+User-agent: GPTBot
+Allow: /
+Disallow: /search
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /search
+
+User-agent: Claude-Web
+Allow: /
+Disallow: /search
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /search
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /search
+
+User-agent: YouBot
+Allow: /
+Disallow: /search
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /search
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /search
+
+User-agent: Bytespider
+Disallow: /
+
+# Content usage preferences
+Content-Signal: ai-train=no, search=yes, ai-input=yes
+
+Sitemap: https://varadrane.com/sitemap.xml

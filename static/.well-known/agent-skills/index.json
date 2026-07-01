@@ -1,0 +1,40 @@
+{
+  "$schema": "https://agentskills.io/schema/v0.2.0/index.json",
+  "skills": [
+    {
+      "name": "browse-portfolio",
+      "type": "navigation",
+      "description": "Browse Varad Rane's portfolio including projects, skills, experience, and education.",
+      "url": "https://varadrane.com/",
+      "sha256": ""
+    },
+    {
+      "name": "view-projects",
+      "type": "content",
+      "description": "View a list of software projects built by Varad Rane with descriptions and links.",
+      "url": "https://varadrane.com/projects",
+      "sha256": ""
+    },
+    {
+      "name": "view-skills",
+      "type": "content",
+      "description": "View technical skills and technologies Varad Rane is proficient in.",
+      "url": "https://varadrane.com/skills",
+      "sha256": ""
+    },
+    {
+      "name": "view-experience",
+      "type": "content",
+      "description": "View Varad Rane's professional work experience and history.",
+      "url": "https://varadrane.com/experience",
+      "sha256": ""
+    },
+    {
+      "name": "view-resume",
+      "type": "content",
+      "description": "Download or view Varad Rane's resume/CV.",
+      "url": "https://varadrane.com/resume",
+      "sha256": ""
+    }
+  ]
+}

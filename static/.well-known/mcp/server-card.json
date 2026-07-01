@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "serverInfo": {
+    "name": "Varad Rane Portfolio",
+    "version": "1.0.0",
+    "description": "Portfolio website of Varad Rane, software engineer. Browse projects, skills, experience, and resume."
+  },
+  "transport": {
+    "type": "http",
+    "url": "https://varadrane.com/"
+  },
+  "capabilities": {
+    "resources": true,
+    "tools": false,
+    "prompts": false
+  },
+  "contact": {
+    "email": "hello@varadrane.com",
+    "url": "https://varadrane.com"
+  }
+}

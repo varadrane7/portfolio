@@ -1,0 +1,10 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://varadrane.com/",
+      "https://www.iana.org/assignments/link-relations/service-doc": [
+        { "href": "https://varadrane.com/" }
+      ]
+    }
+  ]
+}
