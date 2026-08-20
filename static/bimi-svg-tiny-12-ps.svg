@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<svg viewBox="0 0 240 240" version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg">
+  <title>bimi-svg-tiny-12-ps</title>
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%"/>
+    <linearGradient id="innerGlow" x1="0%" y1="0%" x2="0%" y2="100%"/>
+  </defs>
+  <rect x="0" y="0" width="240" height="240" rx="48" fill="#0f0f17"/>
+  <g>
+    <path d="M120 28&#xA;             L188 54&#xA;             V116&#xA;             C188 162 160 196 120 214&#xA;             C80 196 52 162 52 116&#xA;             V54&#xA;             Z" fill="url(#shieldGrad)"/>
+    <path d="M120 28&#xA;             L188 54&#xA;             V116&#xA;             C188 162 160 196 120 214&#xA;             Z" fill="url(#innerGlow)"/>
+  </g>
+  <circle cx="120" cy="108" r="20" fill="#0f0f17"/>
+  <path d="M112 122 L128 122 L133 158 L107 158 Z" fill="#0f0f17"/>
+  <path d="M120 44&#xA;           L174 65&#xA;           V116&#xA;           C174 154 152 182 120 197&#xA;           C88 182 66 154 66 116&#xA;           V65&#xA;           Z" fill="none" stroke="#ffffff" stroke-opacity="0.15" stroke-width="2"/>
+</svg>

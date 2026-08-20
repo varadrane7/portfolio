@@ -3,6 +3,7 @@ dist
 # Output
 .output
 .vercel
+.claude
 /.svelte-kit
 /build
 
