@@ -9,24 +9,24 @@ const items: Array<Experience> = [
 		slug: 'fieldworker-se',
 		company: 'FieldWorker',
 		description:
-			'- Built an LL-based PDF extraction pipeline for Service Detail Reports using GPT-4.1, converting complex multi-column, cross-page layouts into validated structured JSON with zero traditional OCR dependency.\n- Architected a local-first RAG pipeline for clinical case note processing (Ollama, ChromaDB, sentence-transformer embeddings) running fully within an 8GB VRAM budget.\n- Designed a reproducible benchmarking harness tracking latency, throughput, and quality metrics across chunking, retrieval, and quantization strategies to systematically reduce information loss.',
+			'- Built an LLM document-extraction pipeline (GPT-4.1) turning multi-column, cross-page PDF reports into schema-validated JSON, automating ~95% of client intake and removing manual data entry from the workflow.\n- Architected a local-first RAG pipeline for clinical case notes (Ollama, ChromaDB, sentence-transformer embeddings, PostgreSQL vector storage) engineered to run inside an 8GB VRAM budget so sensitive data never left the environment; adopted for 97% of new client entries in production.\n- Designed a reproducible benchmarking harness measuring latency, throughput and retrieval quality across chunking, retrieval and quantization strategies; heading-based markdown chunking won, raising retrieval accuracy from 72% to 93%.',
 		contract: ContractType.PartTime,
 		type: 'Software Development',
-		location: 'Jersey City, NJ, USA',
+		location: 'Princeton, NJ, USA',
 		period: { from: new Date('2026-02-01') },
 		skills: getSkills('llm', 'python', 'rag', 'docker', 'ts', 'js'),
-		name: 'Software Engineer',
+		name: 'Software Developer',
 		color: 'blue',
 		links: [],
 		logo: Assets.FieldWorker,
 		shortDescription:
-			'Built an LLM-based PDF extraction pipeline and local-first RAG pipeline for clinical case note processing.'
+			'Built an LLM document-extraction pipeline automating ~95% of client intake and a local-first RAG pipeline adopted for 97% of new client entries.'
 	},
 	{
 		slug: 'njit-grader',
 		company: 'New Jersey Institute of Technology',
 		description:
-			'- Teaching C and C++ to undergraduate students — covering memory management, pointers, data structures, and systems-level programming concepts.\n- Holding weekly office hours, grading assignments, and providing 1:1 feedback on code quality and debugging approaches.\n- Reinforced low-level fundamentals that directly apply to performance-sensitive backend work.',
+			'- Built an automated grading system running student Python and C++ submissions against test suites in isolated containers, with an LLM generating structured HTML feedback on code quality; cut turnaround for 50 students from 5 days to 6 hours.',
 		contract: ContractType.PartTime,
 		type: 'Teaching Assistant (TA)',
 		location: 'Newark, NJ',
@@ -37,52 +37,52 @@ const items: Array<Experience> = [
 		links: [{ to: 'https://www.njit.edu/', label: 'NJIT' }],
 		logo: Assets.NJIT,
 		shortDescription:
-			'Teaching C and C++ to undergraduate students and holding weekly office hours.'
+			'Built an automated, containerized grading system with LLM feedback; cut turnaround from 5 days to 6 hours.'
 	},
 	{
 		slug: 'kotak-manager',
 		company: 'Kotak Securities',
 		description:
-			'- Improved API throughput by 30% by replacing session-based auth with a token architecture, reducing per-request authentication overhead across all user-facing endpoints.\n- Built an Alert Management service in .NET and SQL that cut infrastructure downtime by 15%, monitoring legacy system degradation and triggering automated notifications before failures escalated.\n- Refactored shared database access patterns into a reusable .NET library, eliminating two network hops and measurably reducing application latency across 12 internal services.\n- Designed a queue-based aggregation layer coordinating queries across multiple SQL databases, enabling consistent high-concurrency data retrieval for trading workflows.',
+			'- Built token-based authentication from scratch for trading APIs serving 2M users at ~260 req/s peak, 30% above the previous 200 req/s, setting the security and audit-compliance baseline for all later internal applications; remediated 12 penetration-test findings and authored the compliance docs.\n- Architected alert management across 100+ production servers and message queues with configurable health checks, cutting quarterly downtime from 6 hours to 5 and automating post-incident root-cause reporting.\n- Built a .NET Standard 2.1 shared library for data access and logging adopted by 50+ engineers across 4 teams; removed two network hops per request and resolved a production IIS socket-exhaustion failure.\n- Designed an internal API gateway centralizing auth, CORS and rate limiting, with SQL-driven routing that enabled parallel live-environment testing against production data with no separate staging deployment.',
 		contract: ContractType.FullTime,
 		type: 'Software Development',
 		location: 'Mumbai, Maharashtra, India',
 		period: { from: new Date('2023-06-01'), to: new Date('2024-08-31') },
 		skills: getSkills('rest', 'dotnet', 'js', 'angular', 'sql', 'docker', 'python', 'bash'),
-		name: 'Software Engineer',
+		name: 'Software Engineer II',
 		color: 'red',
 		links: [{ to: 'https://www.kotaksecurities.com/', label: 'Kotak Securities' }],
 		logo: Assets.Kotak,
-		shortDescription: 'Improved API throughput by replacing session-based auth with tokens, and built an Alert Management service.'
+		shortDescription: 'Built token-based auth for trading APIs serving 2M users, an internal API gateway, and alerting across 100+ servers.'
 	},
 	{
 		slug: 'kotak-mt',
 		company: 'Kotak Securities',
 		description:
-			'- Built full-stack features across Angular and ASP.NET, owning both frontend components and SQL-backed API endpoints for internal trading and client-facing workflows.\n- Led migration of legacy applications from .NET Framework to .NET 7.0, updating dependency chains, resolving breaking changes, and aligning authentication flows with updated security standards.\n- Optimized high-frequency SQL queries for production API endpoints, identifying bottlenecks through query execution plans and reducing p95 latency in critical data retrieval paths.\n- Implemented bulk data ingestion pipelines for file upload workflows, enabling standardized cross-team database integration and reducing manual data handling.',
+			'- Optimized high-frequency production SQL via execution-plan analysis and indexing, cutting p95 latency on critical retrieval paths from 237 ms to 145 ms.\n- Migrated a legacy CRM (70 views) from .NET Framework to .NET 7 with zero production downtime, resolving breaking changes and realigning auth flows to updated security standards.\n- Built a reusable bulk file-upload module with validation, transactional error handling and user-facing recovery, standardizing CSV ingestion across 7 teams and halving development time for new upload workflows.',
 		contract: ContractType.FullTime,
 		type: 'Software Development',
 		location: 'Mumbai, Maharashtra, India',
-		period: { from: new Date('2022-06-01'), to: new Date('2023-07-01') },
+		period: { from: new Date('2022-06-01'), to: new Date('2023-06-01') },
 		skills: getSkills('oop', 'dotnet', 'js', 'csharp', 'sql', 'angular', 'css'),
-		name: 'Junior Developer',
+		name: 'Software Engineer',
 		color: 'red',
 		links: [{ to: 'https://www.kotaksecurities.com/', label: 'Kotak Securities' }],
 		logo: Assets.Kotak,
 		shortDescription:
-			'Built full-stack features across Angular and ASP.NET, and migrated legacy apps to .NET 7.0.'
+			'Cut p95 SQL latency from 237 ms to 145 ms and migrated a 70-view CRM to .NET 7 with zero downtime.'
 	},
 	{
 		slug: 'software-intern-senior',
-		company: "Vivekanad Education Society's Institute of Technology",
+		company: "Vivekanand Education Society's Institute of Technology",
 		description:
-			'- Built a full-stack web platform and Discord bot for on-demand student certificate distribution, handling user authentication via college email, bulk uploading of digitally-signed certificates, and real-time delivery through the Discord API.\n- Reduced administrative effort significantly by replacing a manual certificate issuance process with an automated, verified digital pipeline.',
+			'- Built a full-stack certificate-distribution platform and Discord bot with college-email authentication, bulk upload of digitally signed certificates and real-time delivery via the Discord API, cutting issuance turnaround from 30 days to 10 minutes for 2,500+ students.',
 		contract: ContractType.Internship,
 		type: 'Software Development',
 		location: 'Mumbai, Maharashtra, India',
 		period: { from: new Date('2021-01-01'), to: new Date('2021-08-31') },
 		skills: getSkills('docker', 'js', 'html', 'css', 'firebase'),
-		name: 'Intern, Senior Developer',
+		name: 'Software Engineering Intern - Renaissance Cell',
 		color: 'yellow',
 		links: [],
 		logo: Assets.VES,

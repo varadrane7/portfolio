@@ -1,23 +1,28 @@
 User-agent: *
 Allow: /
 Disallow: /search
+Disallow: /pdf/
 
 # AI crawlers - allow indexing, disallow training
 User-agent: GPTBot
 Allow: /
 Disallow: /search
+Disallow: /pdf/
 
 User-agent: OAI-SearchBot
 Allow: /
 Disallow: /search
+Disallow: /pdf/
 
 User-agent: Claude-Web
 Allow: /
 Disallow: /search
+Disallow: /pdf/
 
 User-agent: Google-Extended
 Allow: /
 Disallow: /search
+Disallow: /pdf/
 
 User-agent: CCBot
 Disallow: /
@@ -25,18 +30,22 @@ Disallow: /
 User-agent: PerplexityBot
 Allow: /
 Disallow: /search
+Disallow: /pdf/
 
 User-agent: YouBot
 Allow: /
 Disallow: /search
+Disallow: /pdf/
 
 User-agent: Amazonbot
 Allow: /
 Disallow: /search
+Disallow: /pdf/
 
 User-agent: anthropic-ai
 Allow: /
 Disallow: /search
+Disallow: /pdf/
 
 User-agent: Bytespider
 Disallow: /

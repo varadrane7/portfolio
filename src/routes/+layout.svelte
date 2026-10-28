@@ -5,6 +5,7 @@
 	import '../markdown.css';
 	import { ModeWatcher } from 'mode-watcher';
 	import { onMount } from 'svelte';
+	import ResumeData, { getResumeVariant } from '$lib/data/resume';
 
 	let { children } = $props();
 
@@ -39,9 +40,22 @@
 					},
 					{
 						name: 'navigate_to_resume',
-						description: 'Navigate to the resume page to view or download Varad Rane\'s CV.',
-						inputSchema: { type: 'object', properties: {}, required: [] },
-						execute: () => { window.location.href = '/resume'; }
+						description: 'Navigate to one of Varad Rane\'s resumes. Versions: "sde" (Software Development Engineer, default), "cloud" (Cloud / Platform Engineer), "net" (.NET Developer).',
+						inputSchema: {
+							type: 'object',
+							properties: {
+								variant: {
+									type: 'string',
+									enum: ResumeData.variants.map((v) => v.id),
+									description: 'Which resume to open. Defaults to "sde".'
+								}
+							},
+							required: []
+						},
+						execute: (args?: { variant?: string }) => {
+							const v = getResumeVariant(args?.variant) ?? ResumeData.defaultVariant;
+							window.location.href = v.page;
+						}
 					}
 				]
 			});

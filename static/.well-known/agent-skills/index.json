@@ -32,7 +32,7 @@
     {
       "name": "view-resume",
       "type": "content",
-      "description": "Download or view Varad Rane's resume/CV.",
+      "description": "Download or view Varad Rane's resume/CV (SDE, Cloud and .NET versions).",
       "url": "https://varadrane.com/resume",
       "sha256": ""
     }

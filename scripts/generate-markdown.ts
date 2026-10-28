@@ -9,7 +9,7 @@ import { dirname, join } from 'node:path';
 
 import BaseData from '../src/lib/data/base';
 import HomeData from '../src/lib/data/home';
-import ResumeData from '../src/lib/data/resume';
+import ResumeData, { type ResumeVariant } from '../src/lib/data/resume';
 import ExperienceData from '../src/lib/data/experience';
 import ProjectsData from '../src/lib/data/projects';
 import EducationData from '../src/lib/data/education';
@@ -71,7 +71,22 @@ async function main() {
 	);
 
 	// Resume
-	push('/resume.md', [`# ${ResumeData.title}`, '', `[Download PDF](${ResumeData.resume})`].join('\n'));
+	const resumeVariants = ResumeData.variants as Array<ResumeVariant>;
+	push(
+		'/resume.md',
+		[
+			`# ${ResumeData.title}`,
+			'',
+			...resumeVariants.map((v) => `- ${v.label}: [Download PDF](${v.pdf})`)
+		].join('\n')
+	);
+
+	for (const v of resumeVariants) {
+		push(
+			`/resume/${v.id}.md`,
+			[`# ${ResumeData.title} — ${v.label}`, '', `[Download PDF](${v.pdf})`].join('\n')
+		);
+	}
 
 	// Experience list + detail
 	push(
