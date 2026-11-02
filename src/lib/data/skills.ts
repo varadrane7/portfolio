@@ -279,6 +279,24 @@ const items = [
 		description: 'Representational State Transfer (REST) is an architectural style for designing networked applications, relying on stateless, client-server protocols.'
 	}),
 	defineSkill({
+		slug: 'aws',
+		name: 'AWS',
+		color: 'orange',
+		category: 'devops',
+		logo: Assets.AWS,
+		description:
+			'Amazon Web Services (AWS) is a cloud platform offering compute, storage, databases, serverless and AI services such as Lambda, Step Functions, S3, Aurora and Bedrock.'
+	}),
+	defineSkill({
+		slug: 'react',
+		name: 'React',
+		color: 'cyan',
+		category: 'library',
+		logo: Assets.ReactJs,
+		description:
+			'React is a JavaScript library for building component-based user interfaces, used with frameworks such as Next.js.'
+	}),
+	defineSkill({
 		slug: 'oop',
 		name: 'Object-Oriented Programming (OOP)',
 		color: 'purple',
